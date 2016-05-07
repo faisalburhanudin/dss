@@ -8,3 +8,16 @@ $app->get('/', function () {
     // Render index view
     return $this->renderer->render('index');
 });
+
+// Administrator router
+
+// Administrator homepage
+$app->get('/admin', function() {
+    return $this->renderer->render('admin/index');
+});
+
+
+// User management
+$app->get('/admin/user', function(){
+    return $this->renderer->render('/admin/user');
+});

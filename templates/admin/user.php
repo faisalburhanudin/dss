@@ -12,9 +12,11 @@
         </tr>
     </thead>
     <tbody>
+        <?php foreach($administrator as $row ){ ?>
         <tr>
-            <td>faisal</td>
-            <td>administrator</td>
+            <td><?= $row["username"] ?></td>
+            <td><?= $row["status"] ?></td>
+<!--            todo link edit delete-->
             <td>
                 <div class="btn-group btn-group-xs" role="group" aria-label="...">
                     <a class="btn btn-danger" href="#" role="button">delete</a>
@@ -22,6 +24,7 @@
                 </div>
             </td>
         </tr>
+        <?php }?>
     </tbody>
 </table>
 <?php $this->stop() ?>

@@ -5,7 +5,7 @@
  * Time: 8:01 PM
  */
 
-namespace Spk\Helpers;
+namespace App\Helpers;
 use PDO;
 
 

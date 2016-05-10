@@ -19,5 +19,7 @@ $app->get('/admin', function() {
 
 // User management
 $app->get('/admin/user', function(){
-    return $this->renderer->render('/admin/user');
+    $admin = App\Controllers\Administrator::listAdministrators();
+    // todo change endpoint to admin
+    return $this->renderer->render('/admin/user', ["administrator" => $admin]);
 });

@@ -12,15 +12,15 @@ use App\Helpers\DB;
 class CPU
 {
 
-    static function get($id)
+    static function get($type)
     {
-        $sql = "SELECT core, speed, cache FROM cpu WHERE id=:id";
+        $sql = "SELECT core, speed, cache FROM cpu WHERE type=:type";
 
         $dbh = DB::connect();
         $cpu = $dbh->prepare($sql);
 
         $cpu->execute(
-            array(':id' => $id)
+            array(':id' => $type)
         );
 
         return $cpu->fetchAll();

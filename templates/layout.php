@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Basis Data Terdistribusi</title>
+    <title>Sis tem pendukung keputusan </title>
     <link href="/static/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>

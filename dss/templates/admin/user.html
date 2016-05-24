@@ -1,6 +1,6 @@
-<?php $this->layout('admin/layout') ?>
+{% extends "admin/layout.html" %}
 
-<?php $this->start('page') ?>
+{% block page %}
 <a class="btn btn-primary" href="#" role="button">Tambah user</a>
 <h2></h2>
 <table class="table table-hover">
@@ -27,4 +27,4 @@
         <?php }?>
     </tbody>
 </table>
-<?php $this->stop() ?>
+{% endblock %}

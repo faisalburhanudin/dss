@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Basis Data Terdistribusi</title>
+    <title>Sis tem pendukung keputusan </title>
     <link href="/static/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="/admin/user">user management</a></li>
+                <li><a href="#">Foo</a></li>
                 <li><a href="#">Bar</a></li>
             </ul>
         </div>
@@ -19,7 +19,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <?=$this->section('page')?>
+            {% block page %}{% endblock %}
         </div>
     </div>
 </div>

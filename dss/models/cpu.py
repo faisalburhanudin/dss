@@ -3,7 +3,7 @@ from dss.models import db
 
 class Cpu(db.Model):
 
-    type = db.Column(db.String(50))
+    type = db.Column(db.String(50), primary_key=True)
 
     core = db.Column(db.Integer)
 

@@ -3,7 +3,7 @@ from dss.models import db
 
 class Computer(db.Model):
 
-    type = db.Column(db.String(50))
+    type = db.Column(db.String(50), primary_key=True)
 
     price = db.Column(db.Integer)
 
@@ -15,4 +15,4 @@ class Computer(db.Model):
 
     harddisk = db.Column(db.Integer)
 
-    monitor = db.Column(db.Interger)
+    monitor = db.Column(db.Integer)

@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
+from dss.models import Administrator, db
 
 bp = Blueprint(__name__, 'admin')
 
@@ -20,8 +21,20 @@ def user_add():
 
 @bp.route("/admin/user/add", methods=["POST"])
 def user_add_post():
-    # todo action add
-    return "add success"
+    username = request.form.get("username")
+    status = request.form.get("status")
+    password = request.form.get("password")
+
+    administrator = Administrator(
+        username=username,
+        status=status,
+        password=password
+    )
+
+    db.session.add(administrator)
+    db.session.commit()
+
+    return "User berhasil ditambahkan"
 
 
 @bp.route("/admin/user/update")

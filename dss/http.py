@@ -1,6 +1,7 @@
 import configuration
 
 from flask import Flask
+from dss.models import db
 from dss.routes import admin
 from dss.routes import frontend
 
@@ -14,4 +15,5 @@ def factory(testing=False):
         app.config['TESTING'] = True
         app.config.from_object(configuration.FlaskTesting)
 
+    db.init_app(app=app)
     return app

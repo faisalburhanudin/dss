@@ -8,7 +8,8 @@ from dss.routes import frontend
 
 def factory(testing=False):
     app = Flask(__name__.split(',')[0])
-    app.register_blueprint(admin.bp)
+    app.register_blueprint(admin.home.bp)
+    app.register_blueprint(admin.user.bp)
     app.register_blueprint(frontend.bp)
 
     if testing:

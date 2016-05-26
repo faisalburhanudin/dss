@@ -70,7 +70,7 @@ def user_update_action(user_id):
     db.session.add(administrator)
     db.session.commit()
 
-    return  "User berhasil diupdate"
+    return "User berhasil diupdate"
 
 
 @bp.route("/admin/user/delete/<int:user_id>")

@@ -1,7 +1,7 @@
 .PHONY: lint test coverage clean
 
 lint:
-	@flake8 cermin
+	@flake8 dss
 
 test:
 	@nosetests --nologcapture

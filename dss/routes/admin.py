@@ -6,21 +6,25 @@ bp = Blueprint(__name__, 'admin')
 
 @bp.route("/admin")
 def admin_home():
+    """Administration home"""
     return render_template("admin/index.html")
 
 
 @bp.route("/admin/user")
 def user_home():
+    """Return user list table"""
     return "user list"
 
 
 @bp.route("/admin/user/add")
 def user_add():
+    """Form add user"""
     return render_template("admin/user_add.html")
 
 
 @bp.route("/admin/user/add", methods=["POST"])
 def user_add_post():
+    """Action add user"""
     username = request.form.get("username")
     status = request.form.get("status")
     password = request.form.get("password")
@@ -37,11 +41,19 @@ def user_add_post():
     return "User berhasil ditambahkan"
 
 
-@bp.route("/admin/user/update")
-def user_update():
-    return "user update"
+@bp.route("/admin/user/update/<int:user_id>")
+def user_update(user_id):
+    """Form update user"""
+    administrator = Administrator.query.filter_by(id=user_id).first()
+    return render_template(
+        "admin/user_update.html",
+        admin_id=administrator.id,
+        username=administrator.username,
+        status=administrator.status,
+        password=administrator.password
+    )
 
 
-@bp.route("/admin/user/update", methods=["POST"])
+@bp.route("/admin/user/update/<int:user_id>", methods=["POST"])
 def user_update_action():
     return  "action user update"

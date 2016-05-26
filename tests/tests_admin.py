@@ -1,4 +1,4 @@
-from dss.models import Administrator
+from dss.models import Administrator, db
 from tests.mock import ServerTest
 
 
@@ -15,14 +15,14 @@ class AdminTestCase(ServerTest):
 
         self.assertIn("Administrator page", response.data.decode("utf-8"))
 
-    def test_admin_add_user_get(self):
-        response = self.app.get("/admin/user/add")
+    def test_admin_add_user_form(self):
+        response = self.app.get("/admin/user/add").data.decode("utf-8")
 
-        self.assertIn("Add user", response.data.decode("utf-8"))
-        self.assertIn('action="/admin/user/add"', response.data.decode("utf-8"))
-        self.assertIn('name="username"', response.data.decode("utf-8"))
-        self.assertIn('name="status"', response.data.decode("utf-8"))
-        self.assertIn('name="password"', response.data.decode("utf-8"))
+        self.assertIn("Add user", response)
+        self.assertIn('action="/admin/user/add"', response)
+        self.assertIn('name="username"', response)
+        self.assertIn('name="status"', response)
+        self.assertIn('name="password"', response)
 
     def test_addmin_add_user_post(self):
         response = self.app.post("/admin/user/add", data={
@@ -36,3 +36,17 @@ class AdminTestCase(ServerTest):
         administrator = Administrator.query.filter_by(username="faisal").first()
         self.assertEqual(2, administrator.status)
         self.assertEqual('123', administrator.password)
+
+    def test_admin_update_form(self):
+        # add one user
+        user = Administrator("foo", 1, "bar")
+        db.session.add(user)
+        db.session.commit()
+
+        response = self.app.get("/admin/user/update/" + str(user.id)).data.decode("utf-8")
+
+        self.assertIn("Update user", response)
+        self.assertIn('action="/admin/user/update/{}"'.format(user.id), response)
+        self.assertIn('name="username" value="{}"'.format(user.username), response)
+        self.assertIn('value="1" selected', response)
+        self.assertIn('name="password" value="{}"'.format(user.password), response)

@@ -8,3 +8,8 @@ class Gpu(db.Model):
     memory = db.Column(db.Integer)
 
     speed = db.Column(db.Integer)
+
+    def __init__(self, type, memory, speed):
+        self.type = type
+        self.memory = memory
+        self.speed = speed

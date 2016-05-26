@@ -2,7 +2,7 @@ from dss.models import Administrator, db
 from tests.mock import ServerTest
 
 
-class AdminTestCase(ServerTest):
+class AdminUserTestCase(ServerTest):
 
     def setUp(self):
         self.db_migrate()

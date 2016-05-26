@@ -71,3 +71,13 @@ def user_update_action(user_id):
     db.session.commit()
 
     return  "User berhasil diupdate"
+
+
+@bp.route("/admin/user/delete/<int:user_id>")
+def user_delete(user_id):
+    """Action delete user"""
+    administrator = Administrator.query.filter_by(id=user_id).first()
+    db.session.delete(administrator)
+    db.session.commit()
+
+    return "User berhasil dihapus"

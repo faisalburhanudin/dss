@@ -69,3 +69,16 @@ class AdminTestCase(ServerTest):
         self.assertEqual("nama baru cie", user.username)
         self.assertEqual(2, user.status)
         self.assertEqual("passwordbarujuga", user.password)
+
+    def test_admin_delete(self):
+        # add one user
+        user = Administrator("foo", 1, "bar")
+        db.session.add(user)
+        db.session.commit()
+
+        response = self.app.get("/admin/user/delete/{}".format(user.id)).data.decode("utf-8")
+
+        self.assertIn("User berhasil dihapus", response)
+
+        user = Administrator.query.filter_by(id=1).first()
+        self.assertEqual(None, user)

@@ -38,9 +38,28 @@ class AdminUserTestCase(ServerTest):
         db.session.add(gpu)
         db.session.commit()
 
-        response = self.app.get("/admin/gpu/update/{}".format(gpu.type)).data.decode("utf-8")
+        response = self.app.get("/admin/gpu/update/{}".format(gpu.type))\
+            .data.decode("utf-8")
 
         self.assertIn("Update gpu", response)
         self.assertIn('action="/admin/gpu/update/{}"'.format(gpu.type), response)
         self.assertIn('name="memory" value="{}"'.format(gpu.memory), response)
         self.assertIn('name="speed" value="{}"'.format(gpu.speed), response)
+
+    def test_update_gpu_action(self):
+        # add gpu
+        # add gpu
+        gpu = Gpu("uyg123", 1000, 2000)
+        db.session.add(gpu)
+        db.session.commit()
+
+        response = self.app.post("admin/gpu/update/{}".format(gpu.type), data={
+            "memory": 4000,
+            "speed": 8000
+        }).data.decode("utf-8")
+
+        self.assertIn("GPU berhasil di update", response)
+
+        gpu = Gpu.query.filter_by(type="uyg123").first()
+        self.assertEqual(gpu.memory, 4000)
+        self.assertEqual(gpu.speed, 8000)

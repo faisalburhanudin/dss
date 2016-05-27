@@ -23,6 +23,7 @@ def gpu_add_action():
 
     return "GPU berhasil ditambahkan"
 
+
 @bp.route("/admin/gpu/update/<typ>")
 def gpu_update(typ):
     """Form update gpu"""
@@ -31,3 +32,28 @@ def gpu_update(typ):
                            type=typ,
                            memory=gpu.memory,
                            speed=gpu.speed)
+
+
+@bp.route("/admin/gpu/update/<typ>", methods=["POST"])
+def gpu_update_action(typ):
+    """Action update gpu"""
+    memory = request.form.get("memory")
+    speed = request.form.get("speed")
+
+    gpu = Gpu.query.filter_by(type=typ).first()
+    gpu.memory = memory
+    gpu.speed = speed
+    db.session.add(gpu)
+    db.session.commit()
+
+    return "GPU berhasil di update"
+
+
+@bp.route("/admin/gpu/delete/<typ>")
+def gpu_delete_action(typ):
+    """Actionn delete gpu"""
+    gpu = Gpu.query.filter_by(type=typ).first()
+    db.session.delete(gpu)
+    db.session.commit()
+
+    return "GPU berhasil di delete"

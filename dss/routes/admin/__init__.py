@@ -1,8 +1,9 @@
-from . import home, user, gpu
+from . import home, user, gpu, cpu
 
 
 __all__ = [
     home,
     user,
-    gpu
+    gpu,
+    cpu
 ]

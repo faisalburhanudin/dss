@@ -1,0 +1,28 @@
+{% extends "admin/layout.html" %}
+
+{% block page %}
+<h3>Update cpu</h3>
+<form action="/admin/cpu/update/{{ type }}", method="post">
+
+  <div class="form-group">
+    <label for="type">Type</label>
+    <input type="text" class="form-control" name="type" value="{{ type }}" disabled id="type" placeholder="Type">
+  </div>
+
+  <div class="form-group">
+    <label for="core">Core</label>
+    <input type="text" class="form-control" name="core" value="{{ core }}" id="core" placeholder="Core">
+  </div>
+
+  <div class="form-group">
+    <label for="speed">Speed</label>
+    <input type="text"  class="form-control" name="speed" value="{{ speed }}" id="speed" placeholder="Speed">
+  </div>
+
+  <div class="form-group">
+    <label for="cache">Cache</label>
+    <input type="text"  class="form-control" name="cache" value="{{ cache }}" id="cache" placeholder="Cache">
+  </div>
+  <button type="submit" class="btn btn-default">Simpan</button>
+</form>
+{% endblock %}

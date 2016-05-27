@@ -10,3 +10,9 @@ class Cpu(db.Model):
     speed = db.Column(db.Integer)
 
     cache = db.Column(db.Integer)
+
+    def __init__(self, typ, core, speed, cache):
+        self.type = typ
+        self.core = core
+        self.speed = speed
+        self.cache = cache

@@ -16,3 +16,12 @@ class Computer(db.Model):
     harddisk = db.Column(db.Integer)
 
     monitor = db.Column(db.Integer)
+
+    def __init__(self, typ, price, cpu_id, gpu_id, ram, harddisk, monitor):
+        self.type = typ
+        self.price = price
+        self.cpu_id = cpu_id
+        self.gpu_id = gpu_id
+        self.ram = ram
+        self.harddisk = harddisk
+        self.monitor = monitor

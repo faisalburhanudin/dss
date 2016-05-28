@@ -12,6 +12,7 @@ def factory(testing=False):
     app.register_blueprint(admin.user.bp)
     app.register_blueprint(admin.gpu.bp)
     app.register_blueprint(admin.cpu.bp)
+    app.register_blueprint(admin.computer.bp)
     app.register_blueprint(frontend.bp)
 
     if testing:

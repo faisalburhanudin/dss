@@ -1,0 +1,44 @@
+{% extends "admin/layout.html" %}
+
+{% block page %}
+<h3>Add computer</h3>
+<form action="/admin/computer/add", method="post">
+
+  <div class="form-group">
+    <label for="type">Type</label>
+    <input type="text" class="form-control" name="type" id="type" placeholder="Type">
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="text" class="form-control" name="price" id="price" placeholder="Price">
+  </div>
+
+  <div class="form-group">
+    <label for="cpu">Cpu</label>
+    <input type="text" class="form-control" name="cpu_id" id="cpu" placeholder="Id cpu">
+  </div>
+
+  <div class="form-group">
+    <label for="gpu">Gpu</label>
+    <input type="text" class="form-control" name="gpu_id" id="gpu" placeholder="Id gpu">
+  </div>
+
+  <div class="form-group">
+    <label for="ram">Ram</label>
+    <input type="text" class="form-control" name="ram" id="ram" placeholder="Ram">
+  </div>
+
+  <div class="form-group">
+    <label for="harddisk">Harddisk</label>
+    <input type="text" class="form-control" name="harddisk" id="harddisk" placeholder="Harddisk capacity">
+  </div>
+
+  <div class="form-group">
+    <label for="monitor">Monitor</label>
+    <input type="text" class="form-control" name="monitor" id="monitor" placeholder="Monitor size">
+  </div>
+
+  <button type="submit" class="btn btn-default">Simpan</button>
+</form>
+{% endblock %}

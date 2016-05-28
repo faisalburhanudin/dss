@@ -18,6 +18,8 @@ def factory(testing=False):
     if testing:
         app.config['TESTING'] = True
         app.config.from_object(configuration.FlaskTesting)
+    else:
+        app.config.from_object(configuration.Config)
 
     db.init_app(app=app)
     return app

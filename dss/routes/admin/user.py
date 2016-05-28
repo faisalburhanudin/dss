@@ -7,7 +7,9 @@ bp = Blueprint(__name__, 'admin_user')
 @bp.route("/admin/user")
 def user_home():
     """Return user list table"""
-    return "user list"
+    administrators = Administrator.query.all()
+    return render_template("admin/user.html",
+                           administrators=administrators)
 
 
 @bp.route("/admin/user/add")

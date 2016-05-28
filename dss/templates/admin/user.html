@@ -1,7 +1,7 @@
 {% extends "admin/layout.html" %}
 
 {% block page %}
-<a class="btn btn-primary" href="#" role="button">Tambah user</a>
+<a class="btn btn-primary" href="/admin/user/add" role="button">Tambah user</a>
 <h2></h2>
 <table class="table table-hover">
     <thead>
@@ -12,11 +12,10 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach($administrator as $row ){ ?>
+        {% for administrator in administrators %}
         <tr>
-            <td><?= $row["username"] ?></td>
-            <td><?= $row["status"] ?></td>
-<!--            todo link edit delete-->
+            <td><?= administrator.username ?></td>
+            <td><?= administrator.status ?></td>
             <td>
                 <div class="btn-group btn-group-xs" role="group" aria-label="...">
                     <a class="btn btn-danger" href="#" role="button">delete</a>
@@ -24,7 +23,7 @@
                 </div>
             </td>
         </tr>
-        <?php }?>
+        {% endfor %}
     </tbody>
 </table>
 {% endblock %}

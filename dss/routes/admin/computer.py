@@ -4,6 +4,12 @@ from dss.models import Computer, db
 bp = Blueprint(__name__, "admin_computer")
 
 
+@bp.route("/admin/computer")
+def computer_list():
+    """List computer"""
+    return "list computer"
+
+
 @bp.route("/admin/computer/add")
 def computer_add():
     """Form add computer"""

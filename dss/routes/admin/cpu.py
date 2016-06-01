@@ -4,6 +4,13 @@ from dss.models import Cpu, db
 bp = Blueprint(__name__, "admin_cpu")
 
 
+@bp.route("/admin/cpu")
+def cpu():
+    """List cpu"""
+    cpus = Cpu.query.all()
+    return render_template("admin/cpu.html", cpus=cpus)
+
+
 @bp.route("/admin/cpu/add")
 def cpu_add():
     """Form add cpu"""
@@ -22,7 +29,7 @@ def cpu_add_action():
     db.session.add(cpu)
     db.session.commit()
 
-    return "CPU berhasil ditambahkan"
+    return render_template("admin/message.html", message="CPU berhasil ditambahkan")
 
 
 @bp.route("/admin/cpu/update/<typ>")

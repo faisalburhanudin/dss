@@ -1,0 +1,33 @@
+{% extends "admin/layout.html" %}
+
+{% block page %}
+<a class="btn btn-primary" href="/admin/cpu/add" role="button">Tambah cpu</a>
+<h2></h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>type</th>
+            <th>core</th>
+            <th>speed</th>
+            <th>cache</th>
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cpu in cpus %}
+        <tr>
+            <td>{{ cpu.type}}</td>
+            <td>{{ cpu.core }}</td>
+            <td>{{ cpu.speed }}</td>
+            <td>{{ cpu.cache }}</td>
+            <td>
+                <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                    <a class="btn btn-danger" href="#" role="button">delete</a>
+                    <a class="btn btn-primary" href="#" role="button">edit</a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

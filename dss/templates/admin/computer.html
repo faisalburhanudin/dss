@@ -1,0 +1,39 @@
+{% extends "admin/layout.html" %}
+
+{% block page %}
+<a class="btn btn-primary" href="/admin/computer/add" role="button">Tambah computer</a>
+<h2></h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>type</th>
+            <th>price</th>
+            <th>cpu</th>
+            <th>gpu</th>
+            <th>ram</th>
+            <th>harddisk</th>
+            <th>monitor</th>
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for computer in computers %}
+        <tr>
+            <td>{{ computer.type }}</td>
+            <td>{{ computer.price }}</td>
+            <td>{{ computer.cpu_id }}</td>
+            <td>{{ computer.gpu_id }}</td>
+            <td>{{ computer.ram }}</td>
+            <td>{{ computer.harddisk }}</td>
+            <td>{{ computer.monitor }}</td>
+            <td>
+                <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                    <a class="btn btn-danger" href="#" role="button">delete</a>
+                    <a class="btn btn-primary" href="#" role="button">edit</a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -7,7 +7,8 @@ bp = Blueprint(__name__, "admin_computer")
 @bp.route("/admin/computer")
 def computer_list():
     """List computer"""
-    return "list computer"
+    computers = Computer.query.all()
+    return render_template("admin/computer.html", computers=computers)
 
 
 @bp.route("/admin/computer/add")
@@ -31,7 +32,7 @@ def computer_add_action():
     db.session.add(computer)
     db.session.commit()
 
-    return "Computer berhasil ditambahkan"
+    return render_template("admin/message.html", message="Computer berhasil ditambahkan")
 
 
 @bp.route("/admin/computer/update/<typ>")

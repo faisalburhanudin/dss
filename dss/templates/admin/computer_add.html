@@ -2,43 +2,60 @@
 
 {% block page %}
 <h3>Add computer</h3>
-<form action="/admin/computer/add", method="post">
+<form action="/admin/computer/add" class="form-horizontal" method="post">
 
   <div class="form-group">
-    <label for="type">Type</label>
-    <input type="text" class="form-control" name="type" id="type" placeholder="Type">
+    <label for="type" class="col-sm-2 control-label">Type</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="type" id="type" placeholder="Type">
+    </div>
   </div>
 
   <div class="form-group">
-    <label for="price">Price</label>
-    <input type="text" class="form-control" name="price" id="price" placeholder="Price">
+    <label for="price" class="col-sm-2 control-label">Price</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="price" id="price" placeholder="Price">
+    </div>
   </div>
 
   <div class="form-group">
-    <label for="cpu">Cpu</label>
-    <input type="text" class="form-control" name="cpu_id" id="cpu" placeholder="Id cpu">
+    <label for="cpu" class="col-sm-2 control-label">Cpu</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="cpu_id" id="cpu" placeholder="Id cpu">
+    </div>
   </div>
 
   <div class="form-group">
-    <label for="gpu">Gpu</label>
-    <input type="text" class="form-control" name="gpu_id" id="gpu" placeholder="Id gpu">
+    <label for="gpu" class="col-sm-2 control-label">Gpu</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="gpu_id" id="gpu" placeholder="Id gpu">
+    </div>
   </div>
 
   <div class="form-group">
-    <label for="ram">Ram</label>
-    <input type="text" class="form-control" name="ram" id="ram" placeholder="Ram">
+    <label for="ram" class="col-sm-2 control-label">Ram</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="ram" id="ram" placeholder="Ram">
+    </div>
   </div>
 
   <div class="form-group">
-    <label for="harddisk">Harddisk</label>
-    <input type="text" class="form-control" name="harddisk" id="harddisk" placeholder="Harddisk capacity">
+    <label for="harddisk" class="col-sm-2 control-label">Harddisk</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="harddisk" id="harddisk" placeholder="Harddisk capacity">
+    </div>
   </div>
 
   <div class="form-group">
-    <label for="monitor">Monitor</label>
-    <input type="text" class="form-control" name="monitor" id="monitor" placeholder="Monitor size">
+    <label for="monitor" class="col-sm-2 control-label">Monitor</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="monitor" id="monitor" placeholder="Monitor size">
+    </div>
   </div>
-
-  <button type="submit" class="btn btn-default">Simpan</button>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Simpan</button>
+    </div>
+  </div>
 </form>
 {% endblock %}

@@ -34,7 +34,7 @@ def user_add_post():
     db.session.add(administrator)
     db.session.commit()
 
-    return "User berhasil ditambahkan"
+    return render_template("admin/message.html", message="User berhasil ditambahkan")
 
 
 @bp.route("/admin/user/update/<int:user_id>")

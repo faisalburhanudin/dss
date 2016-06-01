@@ -14,8 +14,8 @@
     <tbody>
         {% for administrator in administrators %}
         <tr>
-            <td><?= administrator.username ?></td>
-            <td><?= administrator.status ?></td>
+            <td>{{ administrator.username }}</td>
+            <td>{% if administrator.status == 1 %}super administrator{% endif %} {% if administrator.status == 2 %}administrator{% endif %}</td>
             <td>
                 <div class="btn-group btn-group-xs" role="group" aria-label="...">
                     <a class="btn btn-danger" href="#" role="button">delete</a>

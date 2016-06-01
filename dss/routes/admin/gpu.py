@@ -4,6 +4,13 @@ from dss.models import Gpu, db
 bp = Blueprint(__name__, "admin_gpu")
 
 
+@bp.route("/admin/gpu")
+def gpu():
+    """List gpu"""
+    gpus = Gpu.query.all()
+    return render_template("admin/gpu.html", gpus=gpus)
+
+
 @bp.route("/admin/gpu/add")
 def gpu_add():
     """Form add gpu"""
@@ -21,7 +28,7 @@ def gpu_add_action():
     db.session.add(gpu)
     db.session.commit()
 
-    return "GPU berhasil ditambahkan"
+    return render_template("admin/message.html", message="GPU berhasil ditambahkan")
 
 
 @bp.route("/admin/gpu/update/<typ>")

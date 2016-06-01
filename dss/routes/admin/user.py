@@ -66,7 +66,7 @@ def user_update_action(user_id):
     db.session.add(administrator)
     db.session.commit()
 
-    return "User berhasil diupdate"
+    return render_template("admin/message.html", message="User berhasil diupdate")
 
 
 @bp.route("/admin/user/delete/<int:user_id>")
@@ -76,4 +76,4 @@ def user_delete(user_id):
     db.session.delete(administrator)
     db.session.commit()
 
-    return "User berhasil dihapus"
+    return render_template("admin/message.html", message="User berhasil dihapus")

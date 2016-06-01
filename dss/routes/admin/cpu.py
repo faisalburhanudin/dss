@@ -57,7 +57,7 @@ def cpu_update_action(typ):
     db.session.add(cpu)
     db.session.commit()
 
-    return "CPU berhasil di update"
+    return render_template("admin/message.html", message="CPU berhasil di update")
 
 
 @bp.route("/admin/cpu/delete/<typ>")
@@ -67,4 +67,4 @@ def cpu_delete_action(typ):
     db.session.delete(cpu)
     db.session.commit()
 
-    return "CPU berhasil di delete"
+    return render_template("admin/message.html", message="CPU berhasil di delete")

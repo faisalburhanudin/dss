@@ -69,7 +69,7 @@ def computer_update_action(typ):
     db.session.add(computer)
     db.session.commit()
 
-    return "Computer berhasil di update"
+    return render_template("admin/message.html", message="Computer berhasil di update")
 
 
 @bp.route("/admin/computer/delete/<typ>")
@@ -79,4 +79,4 @@ def computer_delete_action(typ):
     db.session.delete(computer)
     db.session.commit()
 
-    return "Computer berhasil di delete"
+    return render_template("admin/message.html", message="Computer berhasil di delete")

@@ -53,7 +53,7 @@ def gpu_update_action(typ):
     db.session.add(gpu)
     db.session.commit()
 
-    return "GPU berhasil di update"
+    return render_template("admin/message.html", message="GPU berhasil di update")
 
 
 @bp.route("/admin/gpu/delete/<typ>")
@@ -63,4 +63,4 @@ def gpu_delete_action(typ):
     db.session.delete(gpu)
     db.session.commit()
 
-    return "GPU berhasil di delete"
+    return render_template("admin/message.html", message="GPU berhasil di delete")

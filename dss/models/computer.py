@@ -1,4 +1,6 @@
 from dss.models import db
+from dss.models.cpu import Cpu
+from dss.models.gpu import Gpu
 
 
 class Computer(db.Model):
@@ -25,3 +27,15 @@ class Computer(db.Model):
         self.ram = ram
         self.harddisk = harddisk
         self.monitor = monitor
+
+    @property
+    def cpu(self):
+        c = Cpu.query.filter_by(type=self.cpu_id).first()
+
+        return c.core + c.speed + c.cache
+
+    @property
+    def gpu(self):
+        g = Gpu.query.filter_by(type=self.gpu_id).first()
+
+        return g.memory + g.speed

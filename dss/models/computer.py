@@ -29,6 +29,18 @@ class Computer(db.Model):
         self.monitor = monitor
 
     @property
+    def cpu_obj(self):
+        c = Cpu.query.filter_by(type=self.cpu_id).first()
+
+        return c
+
+    @property
+    def gpu_obj(self):
+        g = Gpu.query.filter_by(type=self.gpu_id).first()
+
+        return g
+
+    @property
     def cpu(self):
         c = Cpu.query.filter_by(type=self.cpu_id).first()
 

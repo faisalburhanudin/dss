@@ -7,17 +7,27 @@ bp = Blueprint(__name__, 'frontend')
 
 @bp.route("/")
 def home():
-    return render_template("index.html")
+    computers = Computer.query.all()
+    return render_template("index.html",
+                           computers=computers)
 
 
-@bp.route("/json/saw")
+@bp.route("/saw")
 def saw():
-    price_priority = request.form.get("price", 0)
-    ram_priority = request.form.get("ram", 0)
-    harddisk_priority = request.form.get("harddisk", 0)
-    monitor_priority = request.form.get("monitor", 0)
-    cpu_priority = request.form.get("cpu", 0)
-    gpu_priority = request.form.get("gpu", 0)
+    price_priority = request.args.get("price", 5)
+    ram_priority = request.args.get("ram", 5)
+    harddisk_priority = request.args.get("harddisk", 5)
+    monitor_priority = request.args.get("monitor", 5)
+    cpu_priority = request.args.get("cpu", 5)
+    gpu_priority = request.args.get("gpu", 5)
+
+    # type conversion
+    price_priority = int(price_priority)
+    ram_priority = int(ram_priority)
+    harddisk_priority = int(harddisk_priority)
+    monitor_priority = int(monitor_priority)
+    cpu_priority = int(cpu_priority)
+    gpu_priority = int(gpu_priority)
 
     weight = [
         price_priority,

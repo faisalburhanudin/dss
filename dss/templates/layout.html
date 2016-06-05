@@ -2,15 +2,42 @@
 <head>
     <title>Sistem pendukung keputusan </title>
     <link href="/static/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/assets/bootstrap/css/bootstrap-slider.css" rel="stylesheet">
     <link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
 
 <div id="wrapper">
     <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li>Hello</li>
-        </ul>
+        <h2>parameter</h2>
+        <form action="/saw" method="get">
+            <div class="form-group">
+                <label for="price">price</label>
+                <input id="price" name="price" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+            </div>
+            <div class="form-group">
+                <label for="ram">ram</label>
+                <input id="ram" name="ram" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+            </div>
+            <div class="form-group">
+                <label for="harddisk">harddisk</label>
+                <input id="harddisk" name="harddisk" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+            </div>
+            <div class="form-group">
+                <label for="monitor">monitor</label>
+                <input id="monitor" name="monitor" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+            </div>
+            <div class="form-group">
+                <label for="cpu">cpu</label>
+                <input id="cpu" name="cpu" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+            </div>
+            <div class="form-group">
+                <label for="gpu">gpu</label>
+                <input id="gpu" name="gpu" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
     </div>
 
     <div id="page-content-wrapper">
@@ -26,5 +53,37 @@
 
 <script src="/static/assets/jquery/jquery.min.js"></script>
 <script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/assets/bootstrap/js/bootstrap-slider.js"></script>
+<script>
+    $('#price').slider({
+	formatter: function(value) {
+		return value;
+	}});
+
+	$('#ram').slider({
+	formatter: function(value) {
+		return value;
+	}});
+
+	$('#harddisk').slider({
+	formatter: function(value) {
+		return value;
+	}});
+
+	$('#monitor').slider({
+	formatter: function(value) {
+		return value;
+	}});
+
+	$('#cpu').slider({
+	formatter: function(value) {
+		return value;
+	}});
+
+	$('#gpu').slider({
+	formatter: function(value) {
+		return value;
+	}});
+</script>
 </body>
 </html>

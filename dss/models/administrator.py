@@ -15,3 +15,18 @@ class Administrator(db.Model):
         self.username = username
         self.status = status
         self.password = password
+
+    @staticmethod
+    def is_authenticated():
+        return True
+
+    @staticmethod
+    def is_active():
+        return True
+
+    @staticmethod
+    def is_anonymous():
+        return False
+
+    def get_id(self):
+        return self.id

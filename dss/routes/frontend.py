@@ -1,6 +1,7 @@
 import copy
-from flask import Blueprint, render_template, jsonify, request
-from dss.models import Computer
+from flask_login import login_user, login_required, logout_user
+from flask import Blueprint, render_template, request, redirect, url_for
+from dss.models import Computer, Administrator
 
 bp = Blueprint(__name__, 'frontend')
 
@@ -86,3 +87,31 @@ def saw():
     computers = [f[0] for f in final]
     return render_template("index.html",
                            computers=computers)
+
+
+@bp.route("/login")
+def login():
+    return render_template("login.html")
+
+
+@bp.route("/login", methods=["POST"])
+def login_action():
+    username = request.form.get("username")
+    password = request.form.get("password")
+    user = Administrator.query.filter_by(
+        username=username,
+        password=password
+    ).first()
+
+    if not user:
+        return redirect("/login")
+
+    login_user(user)
+    return redirect(url_for("dss.routes.admin.home.admin_home"))
+
+
+@bp.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect("/")

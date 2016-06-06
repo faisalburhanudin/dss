@@ -19,7 +19,9 @@ class Computer(db.Model):
 
     monitor = db.Column(db.Integer)
 
-    def __init__(self, typ, price, cpu_id, gpu_id, ram, harddisk, monitor):
+    image = db.Column(db.String(200))
+
+    def __init__(self, typ, price, cpu_id, gpu_id, ram, harddisk, monitor, image):
         self.type = typ
         self.price = price
         self.cpu_id = cpu_id
@@ -27,6 +29,7 @@ class Computer(db.Model):
         self.ram = ram
         self.harddisk = harddisk
         self.monitor = monitor
+        self.image = image
 
     @property
     def cpu_obj(self):

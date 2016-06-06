@@ -83,14 +83,6 @@ def saw():
     # sort by high score
     final = sorted(normalisation, key=lambda l: l[7], reverse=True)
 
-    result = []
-    for f in final:
-        result.append({
-            "type": f[0].type,
-            "score": f[7]
-        })
-
-    response = {
-        "result": result
-    }
-    return jsonify(response)
+    computers = [f[0] for f in final]
+    return render_template("index.html",
+                           computers=computers)

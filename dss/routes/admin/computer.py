@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template, request
+import os
+from werkzeug.utils import secure_filename
+from flask import Blueprint, render_template, request, current_app
 from dss.models import Computer, db
 
 bp = Blueprint(__name__, "admin_computer")
@@ -28,7 +30,12 @@ def computer_add_action():
     harddisk = request.form.get("harddisk")
     monitor = request.form.get("monitor")
 
-    computer = Computer(typ, price, cpu_id, gpu_id, ram, harddisk, monitor)
+    # todo form
+    image = request.files.get("image")
+    imagename = secure_filename(image.filename)
+    image.save(os.path.join(current_app.config['UPLOAD_FOLDER'], imagename))
+
+    computer = Computer(typ, price, cpu_id, gpu_id, ram, harddisk, monitor, imagename)
     db.session.add(computer)
     db.session.commit()
 

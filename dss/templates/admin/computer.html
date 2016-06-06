@@ -13,6 +13,7 @@
             <th>ram</th>
             <th>harddisk</th>
             <th>monitor</th>
+            <th>image</th>
             <th>action</th>
         </tr>
     </thead>
@@ -26,6 +27,7 @@
             <td>{{ computer.ram }}</td>
             <td>{{ computer.harddisk }}</td>
             <td>{{ computer.monitor }}</td>
+            <td><a href="/static/img/{{ computer.image }}">{{ computer.image }}</a> </td>
             <td>
                 <div class="btn-group btn-group-xs" role="group" aria-label="...">
                     <a class="btn btn-danger" href="/admin/computer/delete/{{ computer.type }}" role="button">delete</a>

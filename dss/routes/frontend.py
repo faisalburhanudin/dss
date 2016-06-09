@@ -1,3 +1,4 @@
+from __future__ import division
 import copy
 from flask_login import login_user, login_required, logout_user
 from flask import Blueprint, render_template, request, redirect, url_for
